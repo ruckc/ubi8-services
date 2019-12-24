@@ -1,0 +1,6 @@
+type = process
+command = /usr/pgsql-12/sbin/postmaster
+depends-on = pginit
+run-as = postgres
+logfile = /var/log/postgresql.log
+smooth-recovery = true

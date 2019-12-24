@@ -1,0 +1,2 @@
+type = scripted
+logfile = /var/log/postgresql.log

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export PREFIX=ruck
+export BUILDER=buildah bud
+#export BUILDER=docker build
+
+function build() {
+        TYPE=$1
+	DIR=$2
+
+	echo ; echo
+        echo "Building $TYPE $DIR"
+	echo "=============================="
+	buildah bud --build-arg PREFIX=$PREFIX -t $PREFIX-$TYPE-$DIR $TYPE/$DIR 
+}
+
+set -e
+image=$1
+if [ "$image" == "" ]; then
+	build template base
+	build template builder
+	build template service
+	build service postgresql
+else
+	build $1 $2
+fi
