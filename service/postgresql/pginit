@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data

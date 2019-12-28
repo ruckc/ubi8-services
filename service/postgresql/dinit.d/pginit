@@ -1,2 +1,4 @@
 type = scripted
 logfile = /var/log/postgresql.log
+command = /usr/local/bin/pginit
+run-as = postgres

@@ -6,5 +6,12 @@ RUN yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_
     rm -rf /var/cache/dnf/*
 
 COPY dinit.d/* /etc/dinit.d/
+COPY pginit /usr/local/bin/pginit
+
+# to validate /etc/dinit.d scripts
+RUN /sbin/dinitcheck && \
+    chmod 0500 /usr/local/bin/pginit
+
+VOLUME /var/lib/pgsql/12/data
 
 EXPOSE 5432/tcp
