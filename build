@@ -1,8 +1,8 @@
 #!/bin/bash
 
 export PREFIX=ruck
-export BUILDER=buildah bud
-#export BUILDER=docker build
+export BUILDER="buildah bud"
+#export BUILDER="docker build"
 
 function build() {
         TYPE=$1
@@ -11,7 +11,7 @@ function build() {
 	echo ; echo
         echo "Building $TYPE $DIR"
 	echo "=============================="
-	buildah bud --build-arg PREFIX=$PREFIX -t $PREFIX-$TYPE-$DIR $TYPE/$DIR 
+	$BUILDER --build-arg PREFIX=$PREFIX -t $PREFIX-$TYPE-$DIR $TYPE/$DIR 
 }
 
 set -e

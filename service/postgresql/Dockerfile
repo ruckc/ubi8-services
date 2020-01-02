@@ -10,7 +10,7 @@ COPY pginit /usr/local/bin/pginit
 
 # to validate /etc/dinit.d scripts
 RUN /sbin/dinitcheck && \
-    chmod 0500 /usr/local/bin/pginit
+    chmod 0555 /usr/local/bin/pginit
 
 VOLUME /var/lib/pgsql/12/data
 
